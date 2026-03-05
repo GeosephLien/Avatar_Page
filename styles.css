@@ -146,6 +146,21 @@ body {
   width: min(650px, 100%);
   max-height: 78vh;
   object-fit: contain;
+  object-position: center top;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 58%,
+    rgba(0, 0, 0, 0.6) 78%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 1) 58%,
+    rgba(0, 0, 0, 0.6) 78%,
+    rgba(0, 0, 0, 0) 100%
+  );
   filter:
     saturate(1.08)
     drop-shadow(0 14px 28px rgba(12, 8, 33, 0.8))
