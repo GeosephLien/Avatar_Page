@@ -3,137 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Official Avatar Creator</title>
+  <title>Metaverse Conference</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="bg-orb orb-a"></div>
-  <div class="bg-orb orb-b"></div>
-  <div class="bg-orb orb-c"></div>
-
-  <header class="site-header">
-    <a class="brand" href="#">OFFICIAL AVATAR CREATOR</a>
-    <nav class="menu" aria-label="Main navigation">
-      <a href="#" class="active">Home</a>
-      <a href="#features">Features</a>
-      <a href="#use-cases">Use Cases</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <a class="btn btn-header" href="#contact">Try Now</a>
-  </header>
-
-  <main class="hero">
-    <section class="hero-copy">
-      <p class="eyebrow">Create Your Signature Identity</p>
-      <h1>
-        Build Your
-        <span>Custom 3D Avatar</span>
-      </h1>
-      <p class="desc">
-        Official Avatar Creator helps you craft character looks, outfits, and style
-        presets in minutes, then export high-quality avatars for social media, games,
-        and brand experiences.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="#features">Start Creating</a>
-        <a class="btn btn-ghost" href="#use-cases">View Examples</a>
+  <main class="poster">
+    <header class="topbar">
+      <a class="brand" href="#">Enter the Metaverse</a>
+      <nav class="menu" aria-label="Main navigation">
+        <a href="#">Sponsors</a>
+        <a href="#">Presenters</a>
+        <a href="#">Schedule</a>
+        <a href="#">Login</a>
+      </nav>
+      <div class="top-actions">
+        <a class="social" href="#" aria-label="Facebook">f</a>
+        <a class="social" href="#" aria-label="Twitter">t</a>
+        <a class="social" href="#" aria-label="LinkedIn">in</a>
+        <a class="btn btn-top" href="#tickets">BUY TICKETS</a>
       </div>
+    </header>
 
-      <ul class="stats" id="features">
-        <li>
-          <strong>100+</strong>
-          <span>Outfit and accessory templates</span>
-        </li>
-        <li>
-          <strong>4K</strong>
-          <span>Output quality</span>
-        </li>
-        <li>
-          <strong>1-Click</strong>
-          <span>Style presets</span>
-        </li>
-      </ul>
-    </section>
+    <section class="hero">
+      <section class="avatar-wing wing-left" aria-label="Left avatar visual">
+        <div class="wing-glow"></div>
+        <img id="avatarLeft" src="" alt="Left avatar close-up" />
+        <p class="image-hint">Missing image in <code>images/</code></p>
+      </section>
 
-    <section class="hero-visual" aria-label="Avatar showcase">
-      <div class="glow-ring"></div>
-      <img id="avatarImage" src="" alt="Official Avatar Creator character showcase" />
-      <div id="avatarDots" class="avatar-dots" aria-label="Avatar carousel indicators"></div>
-      <p class="image-hint">Place your avatar image at <code>images/avatar-pair.png</code></p>
+      <section class="hero-copy">
+        <p class="eyebrow">WORLD'S LARGEST ONLINE METAVERSE CONFERENCE</p>
+        <h1>
+          Explore the
+          <span>future of the Metaverse</span>
+        </h1>
+        <p class="desc">
+          World's largest online metaverse conference
+        </p>
+
+        <p class="event-date">2nd-3rd December 2021</p>
+        <ul class="stats" id="tickets">
+          <li>
+            <strong>62</strong>
+            <span>Days</span>
+          </li>
+          <li>
+            <strong>13</strong>
+            <span>Hours</span>
+          </li>
+          <li>
+            <strong>34</strong>
+            <span>Minutes</span>
+          </li>
+          <li>
+            <strong>54</strong>
+            <span>Seconds</span>
+          </li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#tickets">BUY TICKETS</a>
+        </div>
+      </section>
+
+      <section class="avatar-wing wing-right" aria-label="Right avatar visual">
+        <div class="wing-glow"></div>
+        <img id="avatarRight" src="" alt="Right avatar close-up" />
+        <p class="image-hint">Missing image in <code>images/</code></p>
+      </section>
     </section>
   </main>
 
-  <section class="cards" id="use-cases">
-    <article>
-      <h2>Branded Characters</h2>
-      <p>Create signature mascots and social avatars that keep your brand identity consistent.</p>
-    </article>
-    <article>
-      <h2>Content Creation</h2>
-      <p>Produce posts, short videos, and stream covers with a consistent character style.</p>
-    </article>
-    <article id="contact">
-      <h2>Team Workflow</h2>
-      <p>Share style presets across teams to keep character visuals aligned in every project.</p>
-    </article>
-  </section>
-
   <script>
     (() => {
-      const avatarImages = [
-        "images/ca2_suit_tb_01.png",
-        "images/ca2_suit_tb_05.png",
-        "images/ca2_suit_tb_06.png"
+      const avatarPairs = [
+        { left: "images/ca2_suit_tb_01.png", right: "images/ca2_suit_tb_05.png" },
+        { left: "images/ca2_suit_tb_06.png", right: "images/ca2_suit_tb_01.png" },
+        { left: "images/ca2_suit_tb_05.png", right: "images/ca2_suit_tb_06.png" }
       ];
 
-      const heroVisual = document.querySelector(".hero-visual");
-      const imageEl = document.getElementById("avatarImage");
-      const dotsEl = document.getElementById("avatarDots");
+      const leftWing = document.querySelector(".wing-left");
+      const rightWing = document.querySelector(".wing-right");
+      const leftImageEl = document.getElementById("avatarLeft");
+      const rightImageEl = document.getElementById("avatarRight");
       let current = 0;
       let timerId = null;
 
-      if (!heroVisual || !imageEl || !dotsEl || avatarImages.length === 0) {
-        if (heroVisual) heroVisual.classList.add("missing-image");
+      if (!leftWing || !rightWing || !leftImageEl || !rightImageEl || avatarPairs.length === 0) {
         return;
       }
 
-      const dots = avatarImages.map((_, index) => {
-        const dot = document.createElement("button");
-        dot.type = "button";
-        dot.className = "dot";
-        dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
-        dot.addEventListener("click", () => {
-          showImage(index);
-          restartTimer();
-        });
-        dotsEl.appendChild(dot);
-        return dot;
-      });
+      function updateWingImage(imageEl, wingEl, src, immediate = false) {
+        const fadeOutMs = immediate ? 0 : 220;
 
-      function showImage(index) {
-        current = (index + avatarImages.length) % avatarImages.length;
         imageEl.classList.add("is-fading");
-        imageEl.src = avatarImages[current];
-        imageEl.onload = () => {
-          heroVisual.classList.remove("missing-image");
-          imageEl.classList.remove("is-fading");
-        };
-        imageEl.onerror = () => {
-          heroVisual.classList.add("missing-image");
-          imageEl.classList.remove("is-fading");
-        };
-        dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
+        setTimeout(() => {
+          imageEl.onload = () => {
+            wingEl.classList.remove("missing-image");
+            requestAnimationFrame(() => imageEl.classList.remove("is-fading"));
+          };
+          imageEl.onerror = () => {
+            wingEl.classList.add("missing-image");
+            requestAnimationFrame(() => imageEl.classList.remove("is-fading"));
+          };
+          imageEl.src = src;
+        }, fadeOutMs);
+      }
+
+      function showPair(index, immediate = false) {
+        current = (index + avatarPairs.length) % avatarPairs.length;
+        const pair = avatarPairs[current];
+        updateWingImage(leftImageEl, leftWing, pair.left, immediate);
+        updateWingImage(rightImageEl, rightWing, pair.right, immediate);
       }
 
       function restartTimer() {
         if (timerId) clearInterval(timerId);
-        timerId = setInterval(() => showImage(current + 1), 3000);
+        timerId = setInterval(() => showPair(current + 1), 5000);
       }
 
-      showImage(0);
+      showPair(0, true);
       restartTimer();
     })();
   </script>
