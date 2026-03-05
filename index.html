@@ -6,128 +6,45 @@
   <title>Metaverse Conference</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="poster">
+  <main class="landing">
     <header class="topbar">
-      <a class="brand" href="#">Enter the Metaverse</a>
+      <a class="brand" href="#">CREATIVE</a>
       <nav class="menu" aria-label="Main navigation">
-        <a href="#">Sponsors</a>
-        <a href="#">Presenters</a>
-        <a href="#">Schedule</a>
-        <a href="#">Login</a>
+        <a class="active" href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Work</a>
+        <a href="#">Contact</a>
       </nav>
-      <div class="top-actions">
-        <a class="social" href="#" aria-label="Facebook">f</a>
-        <a class="social" href="#" aria-label="Twitter">t</a>
-        <a class="social" href="#" aria-label="LinkedIn">in</a>
-        <a class="btn btn-top" href="#tickets">BUY TICKETS</a>
-      </div>
+      <a class="btn btn-top" href="#">Get a Quote</a>
     </header>
 
     <section class="hero">
-      <section class="avatar-wing wing-left" aria-label="Left avatar visual">
-        <div class="wing-glow"></div>
-        <img id="avatarLeft" src="" alt="Left avatar close-up" />
-        <p class="image-hint">Missing image in <code>images/</code></p>
-      </section>
-
       <section class="hero-copy">
-        <p class="eyebrow">WORLD'S LARGEST ONLINE METAVERSE CONFERENCE</p>
         <h1>
-          Explore the
-          <span>future of the Metaverse</span>
+          We Create
+          <span>Unique &amp; Custom</span>
+          Designs
         </h1>
         <p class="desc">
-          World's largest online metaverse conference
+          Innovative, user-centered design solutions
+          <br />
+          for modern businesses.
         </p>
-
-        <p class="event-date">2nd-3rd December 2021</p>
-        <ul class="stats" id="tickets">
-          <li>
-            <strong>62</strong>
-            <span>Days</span>
-          </li>
-          <li>
-            <strong>13</strong>
-            <span>Hours</span>
-          </li>
-          <li>
-            <strong>34</strong>
-            <span>Minutes</span>
-          </li>
-          <li>
-            <strong>54</strong>
-            <span>Seconds</span>
-          </li>
-        </ul>
-
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#tickets">BUY TICKETS</a>
-        </div>
+        <a class="btn btn-primary" href="#">About Our Agency</a>
       </section>
 
-      <section class="avatar-wing wing-right" aria-label="Right avatar visual">
-        <div class="wing-glow"></div>
-        <img id="avatarRight" src="" alt="Right avatar close-up" />
-        <p class="image-hint">Missing image in <code>images/</code></p>
+      <section class="hero-visual" aria-label="Creative hero visual">
+        <div class="blob blob-a"></div>
+        <div class="blob blob-b"></div>
+        <div class="blob blob-c"></div>
+        <img src="images/ca2_suit_tb_06.png" alt="Abstract character visual" />
       </section>
     </section>
   </main>
-
-  <script>
-    (() => {
-      const avatarPairs = [
-        { left: "images/ca2_suit_tb_01.png", right: "images/ca2_suit_tb_05.png" },
-        { left: "images/ca2_suit_tb_06.png", right: "images/ca2_suit_tb_01.png" },
-        { left: "images/ca2_suit_tb_05.png", right: "images/ca2_suit_tb_06.png" }
-      ];
-
-      const leftWing = document.querySelector(".wing-left");
-      const rightWing = document.querySelector(".wing-right");
-      const leftImageEl = document.getElementById("avatarLeft");
-      const rightImageEl = document.getElementById("avatarRight");
-      let current = 0;
-      let timerId = null;
-
-      if (!leftWing || !rightWing || !leftImageEl || !rightImageEl || avatarPairs.length === 0) {
-        return;
-      }
-
-      function updateWingImage(imageEl, wingEl, src, immediate = false) {
-        const fadeOutMs = immediate ? 0 : 220;
-
-        imageEl.classList.add("is-fading");
-        setTimeout(() => {
-          imageEl.onload = () => {
-            wingEl.classList.remove("missing-image");
-            requestAnimationFrame(() => imageEl.classList.remove("is-fading"));
-          };
-          imageEl.onerror = () => {
-            wingEl.classList.add("missing-image");
-            requestAnimationFrame(() => imageEl.classList.remove("is-fading"));
-          };
-          imageEl.src = src;
-        }, fadeOutMs);
-      }
-
-      function showPair(index, immediate = false) {
-        current = (index + avatarPairs.length) % avatarPairs.length;
-        const pair = avatarPairs[current];
-        updateWingImage(leftImageEl, leftWing, pair.left, immediate);
-        updateWingImage(rightImageEl, rightWing, pair.right, immediate);
-      }
-
-      function restartTimer() {
-        if (timerId) clearInterval(timerId);
-        timerId = setInterval(() => showPair(current + 1), 5000);
-      }
-
-      showPair(0, true);
-      restartTimer();
-    })();
-  </script>
 </body>
 </html>
