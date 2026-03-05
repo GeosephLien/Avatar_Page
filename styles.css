@@ -4,9 +4,9 @@
   --bg-right: #3c1556;
   --text: #f3f2ff;
   --muted: #bdc3ea;
-  --accent-pink: #e86fd3;
-  --accent-purple: #8f7cff;
-  --accent-orange: #ff8a4c;
+  --accent-blue: #4f6df2;
+  --accent-violet: #7a67ea;
+  --accent-pink: #b566d8;
 }
 
 * {
@@ -84,7 +84,7 @@ body {
 
 .hero-copy h1 span {
   display: block;
-  background: linear-gradient(94deg, var(--accent-pink), var(--accent-purple));
+  background: linear-gradient(102deg, var(--accent-blue), var(--accent-violet) 50%, var(--accent-pink));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -117,8 +117,8 @@ body {
 .btn-top,
 .btn-primary {
   color: #fff;
-  background: linear-gradient(94deg, var(--accent-orange), var(--accent-pink));
-  box-shadow: 0 9px 28px rgba(232, 111, 211, 0.28);
+  background: linear-gradient(102deg, var(--accent-blue), var(--accent-violet) 50%, var(--accent-pink));
+  box-shadow: 0 9px 28px rgba(101, 103, 236, 0.34);
 }
 
 .hero-visual {
