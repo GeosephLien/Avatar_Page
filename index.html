@@ -43,14 +43,18 @@
         <p class="desc">
           Customize style, colors, and details — no two avatars look the same.
         </p>
-        <a class="btn btn-primary" href="#">Create Your Own Style!</a>
+        <a class="btn btn-primary" href="#">Start Creating!</a>
       </section>
 
       <section class="hero-visual" aria-label="Creative hero visual">
         <div class="blob blob-a"></div>
         <div class="blob blob-b"></div>
         <div class="blob blob-c"></div>
-        <img src="images/Yaya_Collection_print_v2.png" alt="Yaya collection character visual" />
+        <div class="hero-carousel" aria-live="polite">
+          <img class="hero-slide is-active" src="images/Yaya_Collection_print_v2.png" alt="Yaya collection character visual" />
+          <img class="hero-slide" src="images/Michael_print_Collection.png" alt="Michael collection character visual" />
+          <img class="hero-slide" src="images/Iris.png" alt="Iris character visual" />
+        </div>
       </section>
     </section>
   </main>
@@ -81,6 +85,21 @@
       });
 
       menu.addEventListener('click', closeMenu);
+    })();
+
+    (() => {
+      const slides = [...document.querySelectorAll('.hero-slide')];
+      if (slides.length < 2) return;
+
+      const intervalMs = 4000;
+      let currentIndex = 0;
+
+      setInterval(() => {
+        const nextIndex = (currentIndex + 1) % slides.length;
+        slides[currentIndex].classList.remove('is-active');
+        slides[nextIndex].classList.add('is-active');
+        currentIndex = nextIndex;
+      }, intervalMs);
     })();
   </script>
 </body>
