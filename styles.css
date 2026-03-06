@@ -45,7 +45,7 @@ body::after {
 .landing {
   position: relative;
   z-index: 1;
-  width: min(1200px, 100%);
+  width: min(1000px, 100%);
   margin: 0 auto;
   min-height: 100vh;
   padding: 1.1rem 1.6rem 1.8rem;
@@ -65,11 +65,20 @@ body::after {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   color: #f5f4ff;
   text-decoration: none;
   font-size: 1.55rem;
   font-weight: 700;
   letter-spacing: 0.03em;
+}
+
+.brand-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
 .hero {
@@ -154,7 +163,7 @@ body::after {
 .hamburger-btn span {
   display: block;
   width: 16px;
-  height: 2px;
+  height: 2.6px;
   border-radius: 2px;
   background: #ffffff;
   transition: transform 0.2s ease, opacity 0.2s ease;
@@ -290,13 +299,19 @@ body::after {
   }
 
   .topbar {
-    flex-wrap: wrap;
+    position: relative;
+    flex-wrap: nowrap;
     justify-content: center;
   }
 
   .top-actions {
-    width: 100%;
-    justify-content: center;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    margin-left: 0;
+    justify-content: flex-end;
   }
 
   .hero {
