@@ -52,6 +52,8 @@ body::after {
 }
 
 .topbar {
+  position: relative;
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,6 +61,8 @@ body::after {
 }
 
 .top-actions {
+  position: relative;
+  z-index: 60;
   display: flex;
   align-items: center;
   gap: 0.6rem;
@@ -82,6 +86,8 @@ body::after {
 }
 
 .hero {
+  position: relative;
+  z-index: 1;
   margin-top: 1.8rem;
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
@@ -112,18 +118,50 @@ body::after {
 
 .hero-copy h1 .title-gradient {
   display: block;
+  position: relative;
   font-size: 76px;
+  line-height: 1.12;
+  padding: 0.08em 0.04em;
+  margin: -0.08em -0.08em;
+  overflow: visible;
   background: linear-gradient(102deg, var(--accent-blue), var(--accent-violet) 50%, var(--accent-pink));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
+.hero-copy h1 .title-gradient::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(102deg, var(--accent-blue), var(--accent-violet) 50%, var(--accent-pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  pointer-events: none;
+  opacity: 1;
+  filter: blur(12px) saturate(1.7) brightness(1.35) contrast(1.08);
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 34%,
+    rgba(0, 0, 0, 0.6) 58%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent 34%,
+    rgba(0, 0, 0, 0.6) 58%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
 .desc {
-  margin: 1.3rem 0 1.8rem;
+  margin: 12px 0 20px;
   color: var(--muted);
   line-height: 1.65;
-  font-size: 1.08rem;
+  font-size: 18px;
 }
 
 .btn {
@@ -211,7 +249,7 @@ body::after {
   background: rgba(255, 255, 255, 0.08);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
-  z-index: 30;
+  z-index: 120;
 }
 
 .hamburger-wrap.open .dropdown-menu {
@@ -238,34 +276,39 @@ body::after {
   min-height: 620px;
   display: grid;
   place-items: center;
+  overflow: visible;
+  padding-top: 28px;
+  margin-top: -28px;
 }
 
 .hero-visual::before {
   content: "";
   position: absolute;
-  inset: 6% 0 4% 4%;
+  inset: 6% -10% 4% -10%;
   border-radius: 49% 51% 58% 42% / 46% 39% 61% 54%;
   background:
-    radial-gradient(circle at 24% 62%, rgba(85, 176, 255, 0.2), transparent 32%),
-    radial-gradient(circle at 68% 44%, rgba(209, 109, 255, 0.26), transparent 45%),
-    radial-gradient(circle at 64% 80%, rgba(255, 155, 89, 0.18), transparent 42%);
-  filter: blur(1px);
+    radial-gradient(circle at 18% 62%, rgba(85, 176, 255, 0.3), transparent 20%),
+    radial-gradient(circle at 68% 44%, rgba(209, 109, 255, 0.36), transparent 33%),
+    radial-gradient(circle at 64% 80%, rgba(255, 155, 89, 0.26), transparent 30%);
+  filter: blur(2px) saturate(1.1) brightness(1.12);
 }
 
 .hero-carousel {
   position: relative;
   z-index: 2;
   width: min(1100px, 240%);
-  max-height: 80vh;
+  height: min(80vh, 760px);
   display: grid;
   place-items: center;
+  overflow: visible;
 }
 
 .hero-slide {
   grid-area: 1 / 1;
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  max-height: 80vh;
+  height: 100%;
   object-fit: contain;
   object-position: center top;
   opacity: 0;
@@ -286,9 +329,11 @@ body::after {
     rgba(0, 0, 0, 0) 100%
   );
   filter:
-    saturate(1.08)
+    saturate(1.14)
+    brightness(1.05)
     drop-shadow(0 14px 28px rgba(12, 8, 33, 0.8))
-    drop-shadow(0 0 26px rgba(162, 104, 255, 0.34));
+    drop-shadow(0 0 14px rgba(162, 104, 255, 0.5))
+    drop-shadow(0 0 22px rgba(98, 164, 255, 0.24));
 }
 
 .hero-slide.is-active {
@@ -356,6 +401,15 @@ body::after {
     justify-content: center;
   }
 
+  .brand {
+    font-size: 1.24rem;
+  }
+
+  .brand-logo {
+    width: 26px;
+    height: 26px;
+  }
+
   .top-actions {
     position: absolute;
     right: 0;
@@ -383,19 +437,34 @@ body::after {
     margin-right: auto;
   }
 
+  .hero-copy h1 .title-main {
+    font-size: 36px;
+  }
+
+  .hero-copy h1 .title-gradient {
+    font-size: 52px;
+  }
+
+  .desc {
+    font-size: 14px;
+  }
+
   .hero-visual {
     min-height: 380px;
     justify-items: center;
+    padding-top: 18px;
+    margin-top: -18px;
   }
 
   .hero-carousel {
     width: min(760px, 100%);
-    display: block;
+    height: min(74vh, 520px);
+    display: grid;
     margin-left: auto;
     margin-right: auto;
   }
 
   .hero-slide {
-    max-height: 74vh;
+    height: 100%;
   }
 }
