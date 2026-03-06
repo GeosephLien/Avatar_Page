@@ -90,7 +90,7 @@ body::after {
 }
 
 .hero-copy {
-  width: 500px;
+  width: min(600px, 92vw);
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -100,13 +100,19 @@ body::after {
 .hero-copy h1 {
   margin: 0;
   width: 100%;
-  font-size: clamp(2.3rem, 5vw, 4.25rem);
+  font-size: clamp(1.9rem, 7vw, 4.25rem);
   line-height: 1.01;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
-.hero-copy h1 span {
+.hero-copy h1 .title-main {
   display: block;
+  font-size: 56px;
+}
+
+.hero-copy h1 .title-gradient {
+  display: block;
+  font-size: 76px;
   background: linear-gradient(102deg, var(--accent-blue), var(--accent-violet) 50%, var(--accent-pink));
   -webkit-background-clip: text;
   background-clip: text;
@@ -276,6 +282,7 @@ body::after {
   position: absolute;
   border-radius: 50%;
   z-index: 1;
+  animation: blob-float 6.6s ease-in-out infinite;
 }
 
 .blob-a {
@@ -284,6 +291,8 @@ body::after {
   top: 24%;
   left: 8%;
   background: radial-gradient(circle at 30% 30%, #ffd18a, #f06eb7 70%);
+  animation-duration: 6s;
+  animation-delay: -0.6s;
 }
 
 .blob-b {
@@ -292,6 +301,8 @@ body::after {
   right: 13%;
   top: 19%;
   background: radial-gradient(circle at 30% 30%, #f8b6ff, #955dff 72%);
+  animation-duration: 7s;
+  animation-delay: -2.4s;
 }
 
 .blob-c {
@@ -299,7 +310,22 @@ body::after {
   height: 78px;
   right: 22%;
   bottom: 18%;
+  z-index: 3;
   background: radial-gradient(circle at 30% 30%, #ffcc8f, #ff7f5c 72%);
+  animation-duration: 7.8s;
+  animation-delay: -4.1s;
+}
+
+@keyframes blob-float {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 @media (max-width: 1000px) {
