@@ -13,12 +13,22 @@
   <main class="landing">
     <header class="topbar">
       <a class="brand" href="#">AVATAR CREATOR</a>
-      <nav class="menu" aria-label="Main navigation">
-        <a class="active" href="#">Realistic</a>
-        <a href="#">Retro</a>
-        <a href="#">Upload VRM</a>
-      </nav>
-      <a class="btn btn-top" href="#">My Avatars</a>
+      <div class="top-actions">
+        <a class="btn btn-top" href="#">Back to My Avatar</a>
+        <div class="hamburger-wrap">
+          <button class="hamburger-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="top-dropdown">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <nav id="top-dropdown" class="dropdown-menu" aria-label="Avatar options">
+            <a href="#">Market Place</a>
+            <a href="#">Realistic Avatar</a>
+            <a href="#">Retro Avatar</a>
+            <a href="#">Upload VRM</a>
+          </nav>
+        </div>
+      </div>
     </header>
 
     <section class="hero">
@@ -44,5 +54,34 @@
       </section>
     </section>
   </main>
+  <script>
+    (() => {
+      const wrap = document.querySelector('.hamburger-wrap');
+      if (!wrap) return;
+      const btn = wrap.querySelector('.hamburger-btn');
+      const menu = wrap.querySelector('.dropdown-menu');
+
+      const closeMenu = () => {
+        wrap.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      };
+
+      btn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const isOpen = wrap.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!wrap.contains(event.target)) closeMenu();
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeMenu();
+      });
+
+      menu.addEventListener('click', closeMenu);
+    })();
+  </script>
 </body>
 </html>

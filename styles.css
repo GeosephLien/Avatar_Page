@@ -43,28 +43,18 @@ body {
   gap: 1rem;
 }
 
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
 .brand {
   color: #f5f4ff;
   text-decoration: none;
   font-size: 1.55rem;
   font-weight: 700;
   letter-spacing: 0.03em;
-}
-
-.menu {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.menu a {
-  text-decoration: none;
-  color: #b8b9d6;
-  font-size: 0.82rem;
-  font-weight: 500;
-}
-
-.menu a.active {
-  color: #ffffff;
 }
 
 .hero {
@@ -114,11 +104,93 @@ body {
   filter: brightness(1.06);
 }
 
-.btn-top,
 .btn-primary {
   color: #fff;
   background: linear-gradient(102deg, var(--accent-blue), var(--accent-violet) 50%, var(--accent-pink));
   box-shadow: 0 9px 28px rgba(101, 103, 236, 0.34);
+}
+
+.btn-top {
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid #ffffff;
+  box-shadow: none;
+  padding: 0.5rem 1.2rem;
+}
+
+.hamburger-wrap {
+  position: relative;
+}
+
+.hamburger-btn {
+  width: 40px;
+  height: 36px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  background: #ffffff;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.hamburger-wrap.open .hamburger-btn span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.hamburger-wrap.open .hamburger-btn span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-wrap.open .hamburger-btn span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 160px;
+  display: none;
+  flex-direction: column;
+  padding: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  z-index: 30;
+}
+
+.hamburger-wrap.open .dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu a {
+  color: #b8b9d6;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0.58rem 0.65rem;
+  border-radius: 8px;
+  text-align: right;
+}
+
+.dropdown-menu a:hover {
+  background: transparent;
+  color: #ffffff;
 }
 
 .hero-visual {
@@ -207,6 +279,11 @@ body {
     justify-content: center;
   }
 
+  .top-actions {
+    width: 100%;
+    justify-content: center;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     gap: 0.5rem;
@@ -214,13 +291,6 @@ body {
 
   .hero-copy {
     text-align: center;
-  }
-
-  .menu {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
   }
 
   .hero-visual {
