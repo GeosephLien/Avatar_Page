@@ -45,7 +45,7 @@ body::after {
 .landing {
   position: relative;
   z-index: 1;
-  width: min(1000px, 100%);
+  width: min(1200px, 100%);
   margin: 0 auto;
   min-height: 100vh;
   padding: 1.1rem 1.6rem 1.8rem;
@@ -89,8 +89,17 @@ body::after {
   gap: 1rem;
 }
 
+.hero-copy {
+  width: 500px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .hero-copy h1 {
   margin: 0;
+  width: 100%;
   font-size: clamp(2.3rem, 5vw, 4.25rem);
   line-height: 1.01;
   letter-spacing: -0.03em;
@@ -321,13 +330,26 @@ body::after {
 
   .hero-copy {
     text-align: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-copy h1 {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-visual {
     min-height: 380px;
+    justify-items: center;
   }
 
   .hero-visual img {
+    width: min(760px, 100%);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     max-height: 74vh;
   }
 }
